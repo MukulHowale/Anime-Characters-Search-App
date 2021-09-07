@@ -1,16 +1,18 @@
 
+let div = document.getElementById('show');
+
 let timerId;
 
 
 let appendMovies = (m) =>{
-  moviesDiv.innerHTML = null;
+  show.innerHTML = null;
 
   m.forEach(({Title}) =>{
       let p = document.createElement('p');
 
       p.innerText = Title;
 
-      moviesDiv.append(p);
+      show.append(p);
       
   })
 }
@@ -47,7 +49,7 @@ let getData = async (n) =>{
 let wait = (f,d) =>{
   if(timerId){
     clearTimeout(timerId);
-    console.log(timerId);
+    // console.log(timerId);
   }
 
   console.log("OK");
