@@ -1,26 +1,62 @@
+h3{
+    margin: 0px;
+    padding: 0px;
+}
+
 #bigCont{
     width: 700px;
-    height: 400px;
-    /* border: 1px solid black; */
+    height: 435px;
     margin: 150px auto;
 }
 
 #search{
     width: 100%;
     height: 50px;
-    margin: auto;
-    border: 1px solid black;
+    margin-bottom: 5px;
 }
 
 input{
-    width: 99%;
+    width: 98.8%;
     height: 99%;
     font-size: 18px;
+    border-radius: 20px;
+    outline: none;
 }
 
 #show{
-    width: 100%;
+    width: 99.8%;
     height: 85%;
-    border: 1px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* border: 1px solid black; */
+}
+
+#show::-webkit-scrollbar{
+    width: 8px;
+}
+
+#show::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: rgb(75, 75, 75);
+}
+
+#show::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: rgb(189, 189, 189);
+}
+
+
+#show > div{
+    width: 94%;
+    height: 50px;
+    padding: 20px 20px 20px 20px;
+}
+
+.dots{
+    display: block; 
+    white-space: nowrap;
+    width: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
