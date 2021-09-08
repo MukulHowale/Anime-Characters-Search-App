@@ -1,18 +1,20 @@
 
-let div = document.getElementById('show');
+let show = document.getElementById('show');
 
 let timerId;
 
 
 let appendMovies = (m) =>{
-  show.innerHTML = null;
+  // show.innerHTML = null;
 
-  m.forEach(({Title}) =>{
-      let p = document.createElement('p');
+  console.log(m);
 
-      p.innerText = Title;
+  m.forEach(({name}) =>{
+      let div = document.createElement('div');
 
-      show.append(p);
+      div.innerText = name;
+
+      show.append(div);
       
   })
 }
@@ -31,7 +33,7 @@ let main = async () =>{
       return false;
   }
 
-  append(movies);
+  appendMovies(movies);
 
   console.log(movies);
 }
@@ -42,7 +44,7 @@ let getData = async (n) =>{
 
   let data = await res.json();
 
-  console.log(data.results);
+  // console.log(data.results);
 }
 
 //executes main function after ccertain time
@@ -51,8 +53,6 @@ let wait = (f,d) =>{
     clearTimeout(timerId);
     // console.log(timerId);
   }
-
-  console.log("OK");
 
   timerId = setTimeout(() =>{
     f();
