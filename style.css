@@ -1,12 +1,23 @@
+html{
+    backdrop-filter: blur(8px);
+}
+h1{
+    text-align: center;
+    color: white;
+    font-size: 38px;
+    text-shadow: 2px 2px 4px rgb(173, 92, 92);
+    /* color: rgb(158, 158, 3); */
+}
 h3{
     margin: 0px;
     padding: 0px;
+    width: 30%;
 }
 
 #bigCont{
     width: 700px;
-    height: 435px;
-    margin: 150px auto;
+    height: 335px;
+    margin: 100px auto;
 }
 
 #search{
@@ -16,19 +27,23 @@ h3{
 }
 
 input{
-    width: 98.8%;
+    width: 96%;
     height: 99%;
     font-size: 18px;
     border-radius: 20px;
+    border: none;
     outline: none;
+    padding-left: 20px;
+    padding-top: 5px;
+    background-color: rgb(241, 220, 192);
 }
 
 #show{
     width: 99.8%;
     height: 85%;
+    border: none;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    /* border: 1px solid black; */
 }
 
 #show::-webkit-scrollbar{

@@ -1,7 +1,55 @@
+var b = document.body;
+b.style.backgroundImage = "url('https://wallpaperaccess.com/full/44772.jpg')";
+b.style.backgroundSize = "cover";
 
 let show = document.getElementById('show');
 
 let timerId;
+
+let showDetails = (e) =>{
+  let big = document.getElementById('bigCont');
+  big.style.display = "flex";
+  big.style.flexDirection = "column";
+  big.style.alignItems = "center";
+
+  let data = e.target;
+
+  let img = document.createElement('img');
+  img.style.borderRadius = "10px";
+  img.src = data.value;
+
+  let name = data.firstChild;
+  name.style.textAlign = "center";
+  name.style.color = "white";
+  name.style.marginTop = "10px";
+  name.style.fontSize = "28px";
+  name.style.textShadow = "4px 4px 4px rgb(173, 92, 92)";
+
+  let back = document.createElement('button');
+  back.style.width = "100px";
+  back.style.height = "40px";
+  back.style.backgroundColor = "transparent";
+  back.style.marginLeft = "47%";
+  back.innerText = "Go Back";
+  back.style.border = "2px solid yellow";
+  back.style.color = "Yellow";
+
+  back.onmouseover = () =>{
+    back.style.cursor = "pointer";
+  }
+
+  back.onclick = () =>{
+    back.style.border = "2px solid rgb(158, 158, 3)";
+    location.reload();
+  }
+
+  big.replaceChildren(img, name);
+
+  big.insertAdjacentElement('afterend',back);
+
+  console.log(data.value);
+  console.log(data.firstChild);
+}
 
 
 let appendMovies = (m) =>{
@@ -9,8 +57,11 @@ let appendMovies = (m) =>{
 
   console.log(m);
 
-  m.forEach(({name,anime,manga}) =>{
+  m.forEach(({name,anime,manga,image_url}) =>{
       let div = document.createElement('div');
+      div.addEventListener('click',showDetails);
+
+      div.value = image_url;
 
       let h3 = document.createElement('h3');
       h3.innerText = name;
@@ -40,6 +91,9 @@ let appendMovies = (m) =>{
       value.style.borderBottomLeftRadius = "0px";
       value.style.borderBottomRightRadius = "0px";
 
+      div.style.backgroundColor = "rgb(245, 238, 228)";
+      div.style.cursor = "pointer";
+
       div.append(h3,p2,p1);
 
       show.append(div);
@@ -49,11 +103,9 @@ let appendMovies = (m) =>{
   if(m.length >= 5){
     show.style.overflow = "scroll";
     show.style.overflowX = "hidden";
-    show.style.border = "1px solid black";
     show.style.borderBottomRightRadius = "5px";
   }
   else if(m.length == 4){
-    show.style.border = "1px solid black";
     show.style.borderBottomRightRadius = "20px";
     if(show.style.overflowY){
       show.style.overflowY = "hidden";
@@ -62,14 +114,9 @@ let appendMovies = (m) =>{
   else{
     let temp = show.firstChild;
     while(temp != show.lastChild){
-      temp.style.borderLeft = "1px solid black";
-      temp.style.borderRight = "1px solid black";
       temp = temp.nextSibling;
     }
     show.style.overflow = "hidden";
-    show.lastChild.style.borderLeft = "1px solid black";
-    show.lastChild.style.borderRight = "1px solid black";
-    show.lastChild.style.borderBottom = "1px solid black";
     show.lastChild.style.borderBottomLeftRadius = "20px";
     show.lastChild.style.borderBottomRightRadius = "20px";
     show.style.border = "0px";
