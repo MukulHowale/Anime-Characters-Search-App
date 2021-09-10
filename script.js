@@ -16,6 +16,7 @@ let showDetails = (e) =>{
 
   let img = document.createElement('img');
   img.style.borderRadius = "10px";
+  img.style.boxShadow = "0px 0px 6px 4px white";
   img.src = data.value;
 
   let name = data.firstChild;
@@ -33,6 +34,7 @@ let showDetails = (e) =>{
   back.innerText = "Go Back";
   back.style.border = "2px solid yellow";
   back.style.color = "Yellow";
+  back.style.boxShadow = "0px 0px 6px 4px yellow";
 
   back.onmouseover = () =>{
     back.style.cursor = "pointer";
